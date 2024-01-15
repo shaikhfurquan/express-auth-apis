@@ -1,0 +1,103 @@
+
+POST ==> USER REGISTER
+http://localhost:4040/api/user/register
+{
+  "name" : "kp",
+  "email" : "kp@gmail.com",
+  "password" : "123",
+  "confirm_password" : "123",
+  "tc" : true
+}
+
+
+POST ==> USER LOGIN
+http://localhost:4040/api/user/login
+{
+  "email" : "k@gmail.com",
+  "password" : "123"
+}
+http://localhost:4040/api/user/login
+{
+  "email" : "kp@gmail.com",
+   "password" : "1233"
+}
+
+
+
+POST ==> CHANGE USER PASSWORD ==> SEND BEARER TOKEN  IN HEADERS
+{
+  "password" : "123",
+  "confirm_password" : "123"
+}
+O/P:-
+{
+  "success": true,
+  "message": "Password Changed Successfully..."
+}
+
+
+
+POST ==> SEND RESET PASSWORD EMAIL
+http://localhost:4040/api/user/send-reset-password-email
+o/p:-
+{
+  "success": true,
+  "message": "Password Reset mail has been sent, Please check your mail..."
+}
+
+
+
+POST ==> PASSWORD RESET
+http://localhost:4040/api/user/reset-password/6569d5fb64ffaf46cff935e8/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NTY5ZDVmYjY0ZmZhZjQ2Y2ZmOTM1ZTgiLCJpYXQiOjE3MDE1MzYzNTAsImV4cCI6MTcwMTUzNzI1MH0.KjG_5Iffcj_ar8ZNAdsOzjXgZsVfd8R67PkzdBwNjxY
+{
+ "password" : "1233",
+ "confirm_password" : "1233"
+}
+
+
+
+
+
+GET ==> LOGGED USER PROFILE ===> SEND BEARER TOKEN
+http://localhost:4040/api/user/loggeduser
+{
+  "success": true,
+  "user": {
+    "_id": "6569d5fb64ffaf46cff935e8",
+    "name": "kp",
+    "email": "kp@gmail.com",
+    "tc": true,
+    "createdAt": "2023-12-01T12:47:55.860Z",
+    "updatedAt": "2023-12-02T15:21:07.028Z",
+    "__v": 0
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create server
+connect to db
+create route for register
+make api for register and validate it
+create route for login
+make api for login and validate it
+on register use  token and send to user in response
+do same and send the token while the user is login and send token in response
+
+working on change password
+
+
+
+
